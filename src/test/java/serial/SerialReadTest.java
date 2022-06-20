@@ -3,12 +3,13 @@ package serial;
 import org.junit.jupiter.api.Test;
 
 public class SerialReadTest implements SerialObserver {
-    SerialReader ser = new SerialReader();
+    //ISerialReader SerialReader = new SerialReader();
+    ISerialReader SerialReader = new DummySerialReader();
 
     @Test
     public void testEventSerial() throws InterruptedException {
-        ser.registerObserver(this);
-        ser.record();
+        SerialReader.registerObserver(this);
+        SerialReader.record();
         Thread.sleep(3000);
     }
 

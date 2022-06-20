@@ -6,16 +6,18 @@ import com.fazecast.jSerialComm.SerialPortEvent;
 
 import java.util.Arrays;
 
-public class SerialReader {
-
+public class SerialReader implements ISerialReader {
     public static final int BAUD_RATE = 38400;
     public static final int PORT_NO = 0;
+
     private SerialObserver observer;
 
+    @Override
     public void registerObserver(SerialObserver observer){
         this.observer=observer;
     }
 
+    @Override
     public void record(){
         SerialPort[] commPorts = SerialPort.getCommPorts();
         System.out.println("Found " + commPorts.length + " SerialPorts");
