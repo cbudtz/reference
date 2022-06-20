@@ -1,6 +1,7 @@
 package gui;
 
 import business.MainController;
+import javafx.application.Platform;
 import javafx.scene.shape.Polyline;
 
 public class GuiController {
@@ -16,7 +17,9 @@ public class GuiController {
         mainController.startRecording();
     }
     public void addPoint(int i){
-        poly.getPoints().addAll(1.0*x,1.0*i);
+        Platform.runLater(()->
+                poly.getPoints().addAll(0.2*x,10.0*i)
+                );
         x++;
     }
 }
