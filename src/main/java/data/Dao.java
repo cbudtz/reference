@@ -14,7 +14,7 @@ public class Dao implements IDao {
                 while (queue.size()<20){
                     synchronized (emptyLock){
                         try {
-                            System.out.println("Waiting on lock - Queue size: " + queue.size());
+                           // System.out.println("Waiting on lock - Queue size: " + queue.size());
                             emptyLock.wait();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
@@ -34,11 +34,11 @@ public class Dao implements IDao {
     public void enqueue(int i) {
         synchronized (queue){
             queue.add(i);
-            System.out.println("enqueueing");
+       //     System.out.println("enqueueing");
         }
         synchronized (emptyLock){
             emptyLock.notifyAll();
-            System.out.println("Notifying");
+        //    System.out.println("Notifying");
         }
 
     }

@@ -11,6 +11,7 @@ import javafx.stage.WindowEvent;
 import serial.DummySerialReader;
 import serial.ISerialReader;
 import serial.SerialObserver;
+import serial.SerialReader;
 
 public class MainController extends Application implements SerialObserver {
      ISerialReader reader = new DummySerialReader();
@@ -21,7 +22,12 @@ public class MainController extends Application implements SerialObserver {
          launch();
      }
 
-    public void startRecording() {
+    public void startRecording(boolean dummy) {
+        if (dummy){
+            reader = new DummySerialReader();
+        } else {
+            reader = new SerialReader();
+        }
         dao.start();
         reader.registerObserver(this);
         reader.record();

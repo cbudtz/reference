@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.Scene?>
 <?import javafx.scene.shape.Polyline?>
-<Scene xmlns="http://javafx.com/javafx"
-       xmlns:fx="http://javafx.com/fxml"
-       fx:controller="gui.GuiController"
->
+<?import javafx.scene.control.CheckBox?>
+<Scene xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.GuiController">
     <FlowPane orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0">
-        <Button onAction="#onClick"></Button>
-        <Polyline fx:id="poly"></Polyline>
+        <CheckBox fx:id="checkBox">Dummy Data</CheckBox>
+        <Button onAction="#onClick" >Push me</Button>
+        <Polyline fx:id="poly" />
+
+
     </FlowPane>
 
 </Scene>

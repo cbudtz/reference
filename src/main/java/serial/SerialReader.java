@@ -9,6 +9,7 @@ import java.util.Arrays;
 public class SerialReader implements ISerialReader {
     public static final int BAUD_RATE = 38400;
     public static final int PORT_NO = 0;
+    String readData = "";
 
     private SerialObserver observer;
 
@@ -38,8 +39,17 @@ public class SerialReader implements ISerialReader {
                 }
                 if(observer!=null){
                     byte[] receivedData = serialPortEvent.getReceivedData();
-                    int i = Integer.parseInt(Arrays.toString(receivedData));
-                    observer.handle(i);
+                    readData += new String(receivedData);
+                    if (readData.length() >10){
+                        String[] split = readData.split("\\s+");
+                        readData = split[split.length-1];
+                        for (int i =0; i <split.length-1;i++){
+                            int data = Integer.parseInt(split[i]);
+                            observer.handle(data);
+                        }
+                    }
+
+
                 }
             }
         });

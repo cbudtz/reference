@@ -1,5 +1,6 @@
 package serial;
 
+import javafx.scene.chart.XYChart;
 import org.junit.jupiter.api.Test;
 
 public class SerialReadTest implements SerialObserver {
